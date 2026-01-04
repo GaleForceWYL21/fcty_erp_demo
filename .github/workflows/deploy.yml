@@ -46,7 +46,8 @@ jobs:
         run: |
           echo "=== BUILD OUTPUT ==="
           pwd
-          cat dist/index.html | grep base
+          ls
+          cat ./dist/index.html | grep base
           echo "\n=== PATH CHECK ==="
           echo "Base path in config: $(grep -A 1 'base:' vite.config.js)"
           echo "Publish dir: $(pwd)/dist"
