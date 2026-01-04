@@ -17,7 +17,7 @@ jobs:
           pwd
 
           echo "File existence check for package-lock.json:"
-          ls -lah ./vue3-ios-project/package-lock.json || echo "File not found!"
+          ls -lah package-lock.json || echo "File not found!"
 
       # 配置 Node
       - name: Setup Node
@@ -42,14 +42,14 @@ jobs:
 #          sed -i 's/href="\//href="\/factory_ERP_demo\/vue3-ios-project\//g' ./vue3-ios-project/dist/index.html
 
 
-#      - name: Verify build output
-#        run: |
-#          echo "=== BUILD OUTPUT ==="
-#          pwd
-#          cat dist/index.html | grep base
-#          echo "\n=== PATH CHECK ==="
-#          echo "Base path in config: $(grep -A 1 'base:' vite.config.js)"
-#          echo "Publish dir: $(pwd)/dist"
+      - name: Verify build output
+        run: |
+          echo "=== BUILD OUTPUT ==="
+          pwd
+          cat dist/index.html | grep base
+          echo "\n=== PATH CHECK ==="
+          echo "Base path in config: $(grep -A 1 'base:' vite.config.js)"
+          echo "Publish dir: $(pwd)/dist"
 
       # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
